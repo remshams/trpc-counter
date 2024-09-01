@@ -1,7 +1,8 @@
 type Counter = number;
 
 export type CounterStore = {
-  get(): Counter;
+  get: () => Counter;
+  set: (value: number) => void;
   increase: () => void;
   decrease: () => void;
   reset: () => void;
@@ -11,6 +12,9 @@ export const createCounterStore = (): CounterStore => {
   let counter = 0;
 
   const get = () => counter;
+  const set = (value: number) => {
+    counter = value;
+  };
   const increase = () => {
     return counter++;
   };
@@ -25,6 +29,7 @@ export const createCounterStore = (): CounterStore => {
 
   return {
     get,
+    set,
     increase,
     decrease,
     reset,

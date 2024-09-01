@@ -1,26 +1,33 @@
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
+import { z } from "zod";
 import { createCounterStore } from "./counter.js";
 import { publicProcedure, router } from "./router.js";
 
 const counterStore = createCounterStore();
 
 export const appRouter = router({
-  get: publicProcedure.query(() => {
+  getCounter: publicProcedure.query(() => {
     return {
       counter: counterStore.get(),
     };
   }),
-  increase: publicProcedure.mutation(() => {
+  setCounter: publicProcedure.input(z.number()).mutation((opts) => {
+    counterStore.set(opts.input);
+    return {
+      count: counterStore.get(),
+    };
+  }),
+  increasteCounter: publicProcedure.mutation(() => {
     return {
       count: counterStore.increase(),
     };
   }),
-  decrease: publicProcedure.mutation(() => {
+  decreaseCounter: publicProcedure.mutation(() => {
     return {
       count: counterStore.decrease(),
     };
   }),
-  reset: publicProcedure.mutation(() => {
+  resetCounter: publicProcedure.mutation(() => {
     counterStore.reset();
     return {
       count: 0,

@@ -17,6 +17,9 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       typescript:
         specifier: ^5.5.4
@@ -42,6 +45,9 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
 snapshots:
 
   '@trpc/client@11.0.0-rc.490(@trpc/server@11.0.0-rc.490)':
@@ -53,3 +59,5 @@ snapshots:
   prettier@3.3.3: {}
 
   typescript@5.5.4: {}
+
+  zod@3.23.8: {}

@@ -16,6 +16,7 @@
   "dependencies": {
     "@trpc/client": "11.0.0-rc.490",
     "@trpc/server": "11.0.0-rc.490",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "zod": "^3.23.8"
   }
 }
