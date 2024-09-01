@@ -1,4 +1,5 @@
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
+import cors from "cors";
 import { z } from "zod";
 import { createCounterStore } from "./counter.js";
 import { publicProcedure, router } from "./router.js";
@@ -38,5 +39,6 @@ export const appRouter = router({
 export type AppRouter = typeof appRouter;
 
 createHTTPServer({
+  middleware: cors(),
   router: appRouter,
 }).listen(3000);

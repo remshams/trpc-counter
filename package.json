@@ -1,21 +1,27 @@
 {
-  "type": "module",
   "name": "counter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build:server": "tsc",
+    "build:client": "esbuild ./client/index.ts --bundle --outfile=./dist/index.js",
+    "start:server": "node ./dist/server/index.js",
+    "start:client": "http-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "esbuild": "^0.23.1",
+    "http-server": "^14.1.1",
     "typescript": "^5.5.4"
   },
   "dependencies": {
     "@trpc/client": "11.0.0-rc.490",
     "@trpc/server": "11.0.0-rc.490",
+    "cors": "^2.8.5",
     "prettier": "^3.3.3",
     "zod": "^3.23.8"
   }

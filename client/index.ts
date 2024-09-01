@@ -9,8 +9,12 @@ const trpc = createTRPCClient<AppRouter>({
   ],
 });
 
-console.log(await trpc.getCounter.query());
-console.log(await trpc.increasteCounter.mutate());
-console.log(await trpc.setCounter.mutate(5));
-console.log(await trpc.resetCounter.mutate());
-console.log(await trpc.getCounter.query());
+const run = async () => {
+  console.log(await trpc.getCounter.query());
+  console.log(await trpc.increasteCounter.mutate());
+  console.log(await trpc.setCounter.mutate(5));
+  console.log(await trpc.resetCounter.mutate());
+  console.log(await trpc.getCounter.query());
+};
+
+run();
