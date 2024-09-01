@@ -16,11 +16,10 @@ export const createCounterStore = (): CounterStore => {
     counter = value;
   };
   const increase = () => {
-    return counter++;
+    return ++counter;
   };
   const decrease = () => {
-    counter--;
-    return counter;
+    return --counter;
   };
   const reset = () => {
     counter = 0;
