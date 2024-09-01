@@ -1,10 +1,10 @@
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
-import { createCounterStore } from "./counter";
-import { publicProcedure, router } from "./router";
+import { createCounterStore } from "./counter.js";
+import { publicProcedure, router } from "./router.js";
 
 const counterStore = createCounterStore();
 
-const appRouter = router({
+export const appRouter = router({
   get: publicProcedure.query(() => {
     return {
       counter: counterStore.get(),
@@ -27,6 +27,8 @@ const appRouter = router({
     };
   }),
 });
+
+export type AppRouter = typeof appRouter;
 
 createHTTPServer({
   router: appRouter,
